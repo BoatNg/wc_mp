@@ -1,6 +1,7 @@
 <template>
-  <div class="list_wrap">
-    <div v-for="(item,index) in word_info" :key="index" class="item_wrap">
+<div>
+  <div class="list_wrap" v-if="word_info.length>0">
+    <div v-for="(item,index) in word_info" :key="index" class="item_wrap" >
       <div class="word">{{item.value}}</div>
       <!-- 发音 -->
       <div class="pronounce_wrap">
@@ -13,6 +14,9 @@
     </div>
     <div v-if="!isMore" class="nomore">没有更多啦</div>
   </div>
+  <div v-else class="nomore">您没有收藏单词哟</div>
+</div>
+  
 </template>
 
 <script>
