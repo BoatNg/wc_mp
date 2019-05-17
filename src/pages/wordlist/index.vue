@@ -65,12 +65,15 @@ export default {
       this.getWordList(true);
     }
   },
-  onLoad() {
+  onShow() {
     let user_info = wx.getStorageSync("user_info");
+    console.log('onShow ====')
+    console.log(user_info)
     flyio.interceptors.request.use(async req => {
       req.headers["Authorization"] = `Bearer ${user_info.token}`;
       return req;
     });
+    this.page_info.offset = 0
     this.getWordList();
   },
   methods: {
@@ -86,6 +89,7 @@ export default {
           offset
         })
         .then(res => {
+          console.log(res.data)
           let { data: result } = res;
           // 转JSON
           let word_info = result.data.word_info.map(item => {

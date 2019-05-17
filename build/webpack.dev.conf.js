@@ -38,7 +38,9 @@ module.exports = merge(baseWebpackConfig, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
-      'HOST': JSON.stringify('http://127.0.0.1:7001')
+      // 'HOST': JSON.stringify('http://127.0.0.1:7001')
+      'HOST': JSON.stringify('https://www.boatng.cn')
+
     }),
 
     // copy from ./webpack.prod.conf.js
